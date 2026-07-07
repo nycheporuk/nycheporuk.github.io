@@ -236,6 +236,7 @@ dialog#addDlg::backdrop{background:rgba(0,0,0,.4)}
   </div>
   <div class="traybody" id="trayBody"></div>
   <div class="trayfoot">
+    <button class="iconbtn" id="shareBtn">🔗 Share</button>
     <button class="iconbtn" id="copyBtn">📋 Copy</button>
     <button class="iconbtn" id="printBtn">🖨 Print</button>
     <button class="iconbtn" id="clearBtn">🗑 Clear</button>
@@ -278,6 +279,18 @@ const ACTNAME={"1":"1 action","2":"2 actions","3":"3 actions","R":"reaction","F"
 
 // ---- state ----
 const LS="arcaneSpellbook.v1";
+// share-link import: #s=<base64 state> replaces local state (with confirm)
+try{
+  const m=location.hash.match(/^#s=(.+)$/);
+  if(m){
+    const json=decodeURIComponent(escape(atob(decodeURIComponent(m[1]))));
+    JSON.parse(json);
+    if(confirm("Import spellbook state from this link? Local state on this device will be replaced.")){
+      localStorage.setItem(LS,json);
+    }
+    history.replaceState(null,"",location.pathname+location.search);
+  }
+}catch(e){}
 let S={ranks:new Set(),conds:new Set(),acts:new Set(),saves:new Set(),tags:new Set(),
        minR:0,q:"",showHeit:true,bookOnly:false};
 let prep=new Set();          // keys "id@slot"
@@ -548,6 +561,15 @@ document.getElementById("copyBtn").onclick=()=>{
 };
 document.getElementById("printBtn").onclick=()=>{openTray(true);setTimeout(()=>window.print(),200);};
 document.getElementById("clearBtn").onclick=()=>{if(confirm("Clear all prepared spells?")){prep.clear();save();render();renderTray();}};
+
+// ---- share link ----
+document.getElementById("shareBtn").onclick=()=>{
+  save();
+  const json=localStorage.getItem(LS)||"{}";
+  const url=location.origin+location.pathname+"#s="+encodeURIComponent(btoa(unescape(encodeURIComponent(json))));
+  navigator.clipboard.writeText(url).then(()=>{const b=document.getElementById("shareBtn");
+    const o=b.textContent;b.textContent="✓ link copied";setTimeout(()=>b.textContent=o,1200);});
+};
 
 // ---- book-only filter ----
 document.getElementById("bookOnly").onclick=e=>{S.bookOnly=!S.bookOnly;
