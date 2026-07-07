@@ -297,8 +297,8 @@ let prep=new Set();          // keys "id@slot"
 let limits={1:"",2:"",3:"",4:""};
 let book=new Set();          // learned spell ids (spellbook contents)
 let custom=[];               // user-added spells
-let lvl="";                  // character level → free-picks budget
-let freeExtra={c:"",l:""};   // manual extra free picks (school etc.)
+let lvl="6";                 // character level → free-picks budget (current campaign: lvl 6)
+let freeExtra={c:"",l:"4"};  // school wizard: +2 curriculum R1 at start, +1 per new rank (R2@L3, R3@L5)
 try{const j=JSON.parse(localStorage.getItem(LS)||"{}");
   if(j.prep)prep=new Set(j.prep); if(j.limits)limits=j.limits;
   if(j.book)book=new Set(j.book); if(j.custom)custom=j.custom;
@@ -504,6 +504,9 @@ function bookPanel(){
     :`<span class="okfree">${free} / ${free} free</span> <span class="gold">+${n-free} 💰 Learn a Spell</span>`;
   const perRank=[1,2,3,4].map(r=>({r,n:lvled.filter(s=>s.rank===r).length})).filter(x=>x.n)
     .map(x=>`R${x.r}: <b>${x.n}</b>`).join(" · ");
+  const maxR=isNaN(L)?4:Math.ceil(L/2);
+  const overRank=lvled.filter(s=>s.rank>maxR).length;
+  const rankWarn=overRank?`<div class="row"><span class="gold">⚠ ${overRank} learned above rank ${maxR} — not castable at lvl ${L}</span></div>`:"";
   return `<div class="bookpanel">
     <h4>📖 Spellbook — learned <span style="flex:1"></span>
       <span style="font-weight:400;color:var(--muted)">char lvl</span>
@@ -511,10 +514,11 @@ function bookPanel(){
     <div class="row">Cantrips: ${fmt(cant,freeC)}</div>
     <div class="row">Spells: ${fmt(lvled.length,freeL)}</div>
     ${perRank?`<div class="row" style="color:var(--muted)">${perRank}</div>`:""}
+    ${rankWarn}
     <div class="row" style="color:var(--muted)">extra free picks:
       cantrips <input type="number" id="extraC" value="${freeExtra.c}" placeholder="0">
       spells <input type="number" id="extraL" value="${freeExtra.l}" placeholder="0"></div>
-    <div class="row" style="color:var(--muted);font-size:11.5px">free = 10 cantrips + 5 R1 at start, +2 spells per level-up; over budget is fine — Learn a Spell costs gold 💰</div>
+    <div class="row" style="color:var(--muted);font-size:11.5px">lvl 6 school wizard: 10 cantrips + <b>19</b> spells free (5 R1 start + 2×5 lvl-ups + 4 curriculum), typical spread R1:9 · R2:5 · R3:5; over budget is fine — Learn a Spell costs gold 💰</div>
   </div>`;
 }
 function renderTray(){
