@@ -298,7 +298,7 @@ let limits={1:"",2:"",3:"",4:""};
 let book=new Set();          // learned spell ids (spellbook contents)
 let custom=[];               // user-added spells
 let lvl="6";                 // character level → free-picks budget (current campaign: lvl 6)
-let freeExtra={c:"",l:"4"};  // school wizard: +2 curriculum R1 at start, +1 per new rank (R2@L3, R3@L5)
+let freeExtra={c:"1",l:"4"}; // school wizard: +1 curriculum cantrip & +2 curriculum R1 at start, +1 per new rank (R2@L3, R3@L5)
 try{const j=JSON.parse(localStorage.getItem(LS)||"{}");
   if(j.prep)prep=new Set(j.prep); if(j.limits)limits=j.limits;
   if(j.book)book=new Set(j.book); if(j.custom)custom=j.custom;
@@ -518,7 +518,7 @@ function bookPanel(){
     <div class="row" style="color:var(--muted)">extra free picks:
       cantrips <input type="number" id="extraC" value="${freeExtra.c}" placeholder="0">
       spells <input type="number" id="extraL" value="${freeExtra.l}" placeholder="0"></div>
-    <div class="row" style="color:var(--muted);font-size:11.5px">lvl 6 school wizard: 10 cantrips + <b>19</b> spells free (5 R1 start + 2×5 lvl-ups + 4 curriculum), typical spread R1:9 · R2:5 · R3:5; over budget is fine — Learn a Spell costs gold 💰</div>
+    <div class="row" style="color:var(--muted);font-size:11.5px">lvl 6 school wizard: <b>11</b> cantrips (10 + 1 curriculum) + <b>19</b> spells free (5 R1 + 2 curriculum R1 start, 2×5 lvl-ups, +1 curriculum @R2/@R3), typical spread R1:9 · R2:5 · R3:5; over budget is fine — Learn a Spell costs gold 💰</div>
   </div>`;
 }
 function renderTray(){
