@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мій набір спелів — Ancient Elf Wizard 6 (Battle Magic)</title>
+<style>
+  :root{
+    --bg:#14121b; --panel:#1d1a29; --panel2:#241f33; --line:#332c47;
+    --ink:#ece8f5; --dim:#a79fc0; --accent:#b79cff; --accent2:#7c5cff;
+    --gold:#e8c56b; --gold-bg:#2a2313;
+    --reflex:#e6a94d; --fort:#5fbf7d; --will:#b98cff; --react:#5aa9e6;
+    --util:#8b83a6; --attack:#e2726e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;padding:28px 16px 60px}
+  .wrap{max-width:940px;margin:0 auto}
+  header{margin-bottom:26px}
+  h1{font-size:1.55rem;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--dim);font-size:.95rem;margin:0}
+  .build{margin:14px 0 0;padding:12px 14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;font-size:.9rem;color:var(--dim)}
+  .build b{color:var(--ink);font-weight:600}
+  h2{font-size:1.15rem;margin:34px 0 4px;display:flex;align-items:center;gap:9px}
+  h2 .count{font-size:.8rem;color:var(--dim);font-weight:500}
+  .band{font-size:.82rem;color:var(--dim);margin:0 0 12px}
+  h3{font-size:.95rem;margin:18px 0 8px;color:var(--accent);font-weight:600;
+    text-transform:uppercase;letter-spacing:.06em}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;overflow:hidden;margin:0 0 6px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--panel2);color:var(--dim);font-size:.72rem;text-transform:uppercase;
+    letter-spacing:.05em;font-weight:600}
+  tr:last-child td{border-bottom:none}
+  td.name{font-weight:600;white-space:nowrap}
+  td.why{color:var(--dim);font-size:.9rem}
+  .c{display:inline-block;font-size:.66rem;font-weight:700;padding:1px 7px;border-radius:20px;
+    vertical-align:middle;margin-left:5px;letter-spacing:.03em}
+  .cur{background:#2a2440;color:var(--accent);border:1px solid #3d3460}
+  .gp{color:var(--gold);font-weight:700;white-space:nowrap}
+  .save{font-size:.78rem;font-weight:600;white-space:nowrap}
+  .s-reflex{color:var(--reflex)} .s-fort{color:var(--fort)} .s-will{color:var(--will)}
+  .s-react{color:var(--react)} .s-util{color:var(--util)} .s-attack{color:var(--attack)}
+  .gold-wrap{border-color:#4a3d18}
+  .goldband{background:linear-gradient(90deg,var(--gold-bg),transparent);
+    border:1px solid #4a3d18;border-radius:10px;padding:10px 14px;margin:0 0 14px;
+    color:var(--gold);font-size:.88rem}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 0}
+  .pill{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:6px 11px;font-size:.86rem}
+  .pill .sus{color:var(--accent);font-weight:700}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 0;font-size:.78rem;color:var(--dim)}
+  .legend span b{font-weight:700}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--dim);font-size:.85rem}
+  a{color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  @media (max-width:560px){ td.why{font-size:.84rem} h1{font-size:1.3rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Мій набір спелів</h1>
+  <p class="sub">Ancient Elf Wizard 6 · School of Battle Magic · Arcane Thesis: Spell Substitution</p>
+  <div class="build">
+    <b>Слоти/день:</b> 6 кантрипів · 4/4/4 по рангах 1–3 (3 вільні + 1 curriculum). ·
+    <b>Спелбук:</b> 11 кантрипів + 19 спелів (вивчені за рівень) + полиця Learn a Spell (за золото).
+    <span class="c cur">[C]</span> = curriculum Battle Magic. ⟳ = sustained (годується Cackle задарма).
+  </div>
+  <div class="legend">
+    <span><b class="s-reflex">Reflex</b></span>
+    <span><b class="s-fort">Fortitude</b></span>
+    <span><b class="s-will">Will</b></span>
+    <span><b class="s-react">Reaction</b></span>
+    <span><b class="s-attack">Attack</b></span>
+    <span><b class="s-util">Utility / no save</b></span>
+  </div>
+</header>
+
+<h2>🆙 Вивчені за рівень <span class="count">— безкоштовно, спелбук-бюджет</span></h2>
+<p class="band">11 кантрипів + 19 спелів (R1: 8 · R2: 6 · R3: 5)</p>
+
+<h3>Кантрипи (11)</h3>
+<div class="tablewrap"><table>
+<tr><th>Спел</th><th>Сейв / атака</th><th>Роль</th></tr>
+<tr><td class="name">Electric Arc</td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Ядро — 2 цілі, без attack roll.</td></tr>
+<tr><td class="name">Caustic Blast</td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">AoE acid під стіни kineticist.</td></tr>
+<tr><td class="name">Frostbite</td><td><span class="save s-fort">basic Fortitude</span></td><td class="why">Єдиний Fort-кантрип.</td></tr>
+<tr><td class="name">Telekinetic Projectile <span class="c cur">[C]</span></td><td><span class="save s-attack">attack</span></td><td class="why">Фізична шкода повз елементальні резисти.</td></tr>
+<tr><td class="name">Shield <span class="c cur">[C]</span></td><td><span class="save s-util">—</span></td><td class="why">Щоденний дефолт кантрип-слота.</td></tr>
+<tr><td class="name">Elemental Counter</td><td><span class="save s-util">—</span></td><td class="why">Counter зі Staff of Elemental Power.</td></tr>
+<tr><td class="name">Message</td><td><span class="save s-util">—</span></td><td class="why">Координація з бардом.</td></tr>
+<tr><td class="name">Warp Step</td><td><span class="save s-util">—</span></td><td class="why">Кайтинг / мобільність.</td></tr>
+<tr><td class="name">Detect Magic</td><td><span class="save s-util">—</span></td><td class="why">Утиліті, анти-ілюзії.</td></tr>
+<tr><td class="name">Gouging Claw</td><td><span class="save s-attack">attack (melee)</span></td><td class="why">Fallback упритул; кандидат на ретрейн → Ignition.</td></tr>
+<tr><td class="name">Scatter Scree <span class="c cur" style="background:#2a2440;color:#8b83a6;border-color:#3d3460">рек.</span></td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Шкода + difficult terrain; комбо з Grease.</td></tr>
+</table></div>
+
+<h3>Ранг 1 (8)</h3>
+<div class="tablewrap"><table>
+<tr><th>Спел</th><th>Сейв / тип</th><th>Чому</th></tr>
+<tr><td class="name">Breathe Fire <span class="c cur">[C]</span></td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Reflex-тиск, ціль для Widen Spell у чокпоінті.</td></tr>
+<tr><td class="name">Mystic Armor <span class="c cur">[C]</span></td><td><span class="save s-util">пре-баф</span></td><td class="why">+1 item AC = AC 23 без брні. Ранковий каст.</td></tr>
+<tr><td class="name">Befuddle</td><td><span class="save s-will">Will</span></td><td class="why">Clumsy+stupefied; анти-кастер flat check.</td></tr>
+<tr><td class="name">Grease</td><td><span class="save s-fort">Fortitude</span></td><td class="why">Ranged-терейн (prone); комбо зі Scatter Scree.</td></tr>
+<tr><td class="name">Interposing Earth</td><td><span class="save s-react">Reaction</span></td><td class="why">Cover + редукція шкоди; «завжди заряджена».</td></tr>
+<tr><td class="name">Command</td><td><span class="save s-will">Will · 1 дія</span></td><td class="why">Action-flex; знімає реакцію цілі.</td></tr>
+<tr><td class="name">Thunderstrike</td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Electricity/sonic, 120 ft — elemental-спред.</td></tr>
+<tr><td class="name">Gust of Wind</td><td><span class="save s-fort">Fortitude</span></td><td class="why">Анти-флаєр (крит-провал = падіння), лінія prone.</td></tr>
+</table></div>
+
+<h3>Ранг 2 (6)</h3>
+<div class="tablewrap"><table>
+<tr><th>Спел</th><th>Сейв / тип</th><th>Чому</th></tr>
+<tr><td class="name">Floating Flame</td><td><span class="save s-reflex">basic Reflex ⟳</span></td><td class="why">CORE — Cackle робить Sustain безкоштовним; зона їздить крізь ворогів.</td></tr>
+<tr><td class="name">Acid Grip</td><td><span class="save s-reflex">Reflex</span></td><td class="why">Шкода + pull навіть при вдалому сейві.</td></tr>
+<tr><td class="name">Blood Vendetta</td><td><span class="save s-react">Reaction · Will</span></td><td class="why">Persistent bleed з ефектом навіть при успіху.</td></tr>
+<tr><td class="name">Illusory Creature</td><td><span class="save s-util">⟳ псевдо-міньйон</span></td><td class="why">★5 пулу; Cackle годує задарма; шкода + action-denial.</td></tr>
+<tr><td class="name">Invisibility</td><td><span class="save s-util">утиліті/захист</span></td><td class="why">Втеча/інфільтрація (вибір Alex); ↑преміум на L7 у R4.</td></tr>
+<tr><td class="name">Mist <span class="c cur">[C]</span></td><td><span class="save s-util">concealment</span></td><td class="why">Захист бек-лайну; дефолт [C]-слота R2.</td></tr>
+</table></div>
+
+<h3>Ранг 3 (5)</h3>
+<div class="tablewrap"><table>
+<tr><th>Спел</th><th>Сейв / тип</th><th>Чому</th></tr>
+<tr><td class="name">Slow</td><td><span class="save s-fort">Fortitude</span></td><td class="why">Топ-пріоритет — action tax навіть при успіху.</td></tr>
+<tr><td class="name">Haste</td><td><span class="save s-util">авто-ефект</span></td><td class="why">★★★★★ без кидка — надійність.</td></tr>
+<tr><td class="name">Fireball <span class="c cur">[C]</span></td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Сигнатурний нюк; ціль для Widen Spell.</td></tr>
+<tr><td class="name">Lightning Bolt</td><td><span class="save s-reflex">basic Reflex</span></td><td class="why">Лінія; ре-елемент проти fire-resist.</td></tr>
+<tr><td class="name">Aqueous Orb</td><td><span class="save s-reflex">Reflex ⟳</span></td><td class="why">Sustained control (вода); другий Cackle-двигун.</td></tr>
+</table></div>
+
+<h2>💰 Куплені за золото <span class="count">— Learn a Spell (полиця мутацій)</span></h2>
+<div class="goldband">Ціни halved by Magical Shorthand (успіх = авто-крит = півціни).</div>
+
+<h3>Купити зараз — ≤45 gp (разом 30 gp)</h3>
+<div class="tablewrap"><table class="gold-wrap">
+<tr><th>Спел</th><th>Ранг</th><th>Ціна</th><th>Сейв</th><th>Чому не чекає</th></tr>
+<tr><td class="name">Agonizing Despair</td><td>R3</td><td class="gp">8 gp</td><td><span class="save s-will">Will</span></td><td class="why">Will-coverage «шкода + frightened 2»; міст до R4.</td></tr>
+<tr><td class="name">Earthbind</td><td>R3</td><td class="gp">8 gp</td><td><span class="save s-fort">Fortitude</span></td><td class="why">Анти-флаєр silver bullet (curriculum → у [C]-слот).</td></tr>
+<tr><td class="name">Wooden Double</td><td>R3</td><td class="gp">8 gp</td><td><span class="save s-react">Reaction</span></td><td class="why">«Пережити крит боса» (Step + блок 20 HP).</td></tr>
+<tr><td class="name">Laughing Fit</td><td>R2</td><td class="gp">3 gp</td><td><span class="save s-will">Will</span></td><td class="why">Silver bullet vs Reactive-Strike-брути/каунтер-кастери.</td></tr>
+<tr><td class="name">Leaden Steps</td><td>R1</td><td class="gp">1 gp</td><td><span class="save s-fort">Fortitude</span></td><td class="why">⟳ + weakness electricity навіть при успіху — сетап електро-нюка.</td></tr>
+<tr><td class="name">Dehydrate</td><td>R1</td><td class="gp">1 gp</td><td><span class="save s-fort">basic Fort</span></td><td class="why">Fort-AoE (весь наш AoE — Reflex).</td></tr>
+<tr><td class="name">Horizon Thunder Sphere</td><td>R1</td><td class="gp">1 gp</td><td><span class="save s-attack">attack</span></td><td class="why">День «високі сейви / низький AC» — electricity attack.</td></tr>
+</table></div>
+
+<h3>Даунтайм — безкоштовно (Earn-Income навчання)</h3>
+<div class="pills">
+  <span class="pill">Summon Animal <span class="sus">⟳</span></span>
+  <span class="pill">Illusory Object</span>
+  <span class="pill">Phantasmal Minion <span class="sus">⟳</span></span>
+  <span class="pill">Summon Construct <span class="sus">⟳</span></span>
+  <span class="pill">Rouse Skeletons <span class="sus">⟳</span></span>
+  <span class="pill">Blazing Bolt</span>
+  <span class="pill">Vampiric Feast</span>
+  <span class="pill">Stinking Cloud</span>
+  <span class="pill">False Vitality</span>
+  <span class="pill">Hidebound</span>
+  <span class="pill">Tailwind</span>
+  <span class="pill">Mirror Image</span>
+  <span class="pill">Web</span>
+  <span class="pill">Sleep / Dizzying Colors</span>
+  <span class="pill">Fear</span>
+  <span class="pill">Sure Strike</span>
+  <span class="pill">Paralyze</span>
+  <span class="pill">Sudden Bolt</span>
+</div>
+
+<footer>
+  Джерело: <code>build-blast-ss.md</code> (ревізія 2026-07). ·
+  Інтерактивний спелбук: <a href="arcane-spellbook.html">arcane-spellbook.html</a>
+</footer>
+</div>
+</body>
+</html>
